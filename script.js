@@ -19,8 +19,7 @@ let pokemonImages = [
     'url(https://cdn0.iconfinder.com/data/icons/pokemon-go-vol-1/135/_abra-256.png)',
 ]
 
-body.addEventListener("mousemove", (mouse) => {
-
+function pokeLogic(mouse) {
     // Get X & Y coordinates of the mouse
     let xMousePos = mouse.offsetX;
     let yMousePos = mouse.offsetY;
@@ -37,15 +36,20 @@ body.addEventListener("mousemove", (mouse) => {
 
     // Randomise the image
     span.style.backgroundImage = pokemonImages[randomPokeImage()];
+}
 
+function spanRemove() {
     // Remove the element for performance
     setTimeout(() => {
         span.remove();
     }, 14000); // 14 seconds since CSS animation takes 15s, anything after that will be removed to save memory.
-});
+}
 
 function randomPokeImage() {
-
     // Get random image index
     return Math.floor(Math.random() * pokemonImages.length);
 }
+
+
+body.addEventListener("click", pokeLogic);
+body.addEventListener("mousemove", pokeLogic);
