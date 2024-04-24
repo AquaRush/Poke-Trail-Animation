@@ -36,14 +36,13 @@ function pokeLogic(mouse) {
 
     // Randomise the image
     span.style.backgroundImage = pokemonImages[randomPokeImage()];
-}
 
-function spanRemove() {
     // Remove the element for performance
     setTimeout(() => {
         span.remove();
     }, 14000); // 14 seconds since CSS animation takes 15s, anything after that will be removed to save memory.
-}
+};
+
 
 function randomPokeImage() {
     // Get random image index
